@@ -1,13 +1,14 @@
+import { CircularProgress } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './PokeLists.css';
 
 const PokeLists = () => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const getPokemons = async () => {
     try {
@@ -25,6 +26,7 @@ const PokeLists = () => {
           const pokemonData = {
             name: response.data.name,
             image: response.data.sprites.front_default,
+            id: response.data.id,
           };
 
           return pokemonsWithImages.push(pokemonData);
@@ -49,21 +51,26 @@ const PokeLists = () => {
     getPokemons();
   }, [page]);
 
-  // const navigateTo = () => {
-  //   navigate('/');
-  // };
+  const onChangePageInput = (event) => {
+    setPage(Number(event.target.value));
+  };
 
   const renderOptions = () => {
-    if (loading) return <p>Carregando....</p>;
+    if (loading)
+      return (
+        <div className="center-loading">
+          <CircularProgress color="secondary" />
+        </div>
+      );
 
     return (
       <div className="container">
-        <h3>Escolha seu pokemon </h3>
+        <h3>Clique no card para escolher seu pokemon :)</h3>
 
         <div className="container-lists">
           {pokemons?.map((it) => {
             return (
-              <div>
+              <div onClick={() => navigate(`/pokemon/${it.id}`)}>
                 <p>{it.name}</p>
                 <div className="border-img">
                   <img src={it.image} alt="pokemons" />
@@ -73,20 +80,28 @@ const PokeLists = () => {
           })}
         </div>
 
-        <div>
+        <div className="container-buttons">
           <button
+            disabled={page === 0}
             onClick={() => {
               returnPage();
             }}
           >
-            -
+            Voltar
           </button>
+          <input
+            value={page}
+            type="number"
+            className="pagination-box"
+            onChange={onChangePageInput}
+          ></input>
           <button
+            disabled={page === 20}
             onClick={() => {
               nextPage();
             }}
           >
-            +
+            Próxima
           </button>
         </div>
       </div>

@@ -2,7 +2,7 @@
   padding-top: 70px;
   align-items: center;
   justify-content: center;
-  color: #353535;
+  color: #252525;
   font-size: bold;
 }
 
@@ -21,11 +21,66 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  border: 1px solid #021966;
+  border: 2px solid #400376;
   border-radius: 8px;
   cursor: pointer;
+  box-shadow: #353535;
 }
 
 .container-lists :hover {
   transform: scale(1.1);
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+}
+
+.container-buttons button {
+  width: 100px;
+  color: #ff0094;
+  background-color: beige;
+  border: #ff0094 2px solid;
+  border-radius: 8px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pagination-box {
+  width: 40px;
+  color: #ff0094;
+  background-color: beige;
+  border: #ff0094 2px solid;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: auto;
+  text-align: center;
+}
+
+.container-buttons button:disabled {
+  cursor: not-allowed;
+  border: #353535 2px solid;
+  color: #353535;
+}
+
+.center-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  height: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
 }

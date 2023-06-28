@@ -1,0 +1,23 @@
+.container-card {
+  border: 2px solid #400376;
+  height: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: beige;
+}
+
+.container-card img {
+  height: 60%;
+  width: 70%;
+}
+
+.container-card h3 {
+  border-bottom: #400376 1px solid;
+  padding-bottom: 5px;
+}
+
+.box-p {
+  border: #400376 2px solid;
+  border-radius: 8px;
+  background-color: #e8eaee;
+}

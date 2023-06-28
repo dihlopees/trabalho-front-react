@@ -1,6 +1,7 @@
-import React from "react";
-import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
-import PokeLists from "../pages/PokeLists";
+import React from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Details from '../pages/Details';
+import PokeLists from '../pages/PokeLists';
 
 const Router = () => {
   return (
@@ -8,7 +9,7 @@ const Router = () => {
       <Routes>
         <Route element={<PokeLists />} path="/home" />
         <Route element={<Navigate to="/home" />} path="*" />
-        {/* <Route element={} path="/pokemon/:id" /> */}
+        <Route element={<Details />} path="/pokemon/:id" />
       </Routes>
     </BrowserRouter>
   );

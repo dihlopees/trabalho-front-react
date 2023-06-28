@@ -1,0 +1,25 @@
+.container-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+}
+
+.button-absolute {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+
+button {
+  width: 150px;
+  color: #ff0094;
+  background-color: beige;
+  border: #ff0094 2px solid;
+  border-radius: 8px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
